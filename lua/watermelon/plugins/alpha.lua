@@ -9,7 +9,7 @@ return {
         -- define dashboard header
         dashboard.section.header.val = ascii.get_random('text', 'neovim')
 
-        -- define dashboard menu items 
+        -- define dashboard menu items
         dashboard.section.buttons.val = {
             dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
             dashboard.button("SPC ee", "  > Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),

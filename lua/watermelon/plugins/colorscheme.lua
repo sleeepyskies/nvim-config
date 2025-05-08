@@ -1,4 +1,4 @@
--- this file sets up the color scheme. Note that schemes can be switched by 
+-- this file sets up the color scheme. Note that schemes can be switched by
 -- uncommenting them, and commenting out the previous scheme
 
 -- tokyo night color scheme
@@ -20,7 +20,7 @@ return {
         vim.g.material_style = "deep ocean"
 
         require('material').setup({
-            styles = { 
+            styles = {
                 comments = { italic = true },
                 strings = { bold = true },
                 -- keywords = { underline = true },
@@ -30,41 +30,40 @@ return {
                 types = {},
             },
 
-       plugins = { -- Uncomment the plugins that you use to highlight them
-                    -- Available plugins:
-                    -- "coc",
-                    -- "colorful-winsep",
-                    -- "dap",
-                    "dashboard",
-                    -- "eyeliner",
-                    -- "fidget",
-                    -- "flash",
-                    -- "gitsigns",
-                    -- "harpoon",
-                    -- "hop",
-                    -- "illuminate",
-                    "indent-blankline",
-                    -- "lspsaga",
-                    -- "mini",
-                    -- "neogit",
-                    -- "neotest",
-                    -- "neo-tree",
-                    -- "neorg",
-                    -- "noice",
-                    "nvim-cmp",
-                    -- "nvim-navic",
-                    "nvim-tree",
-                    "nvim-web-devicons",
-                    -- "rainbow-delimiters",
-                    -- "sneak",
-                    "telescope",
-                    -- "trouble",
-                    "which-key",
-                    -- "nvim-notify",
-                },
+            plugins = { -- Uncomment the plugins that you use to highlight them
+                -- Available plugins:
+                -- "coc",
+                -- "colorful-winsep",
+                -- "dap",
+                "dashboard",
+                -- "eyeliner",
+                -- "fidget",
+                -- "flash",
+                -- "gitsigns",
+                -- "harpoon",
+                -- "hop",
+                -- "illuminate",
+                "indent-blankline",
+                -- "lspsaga",
+                -- "mini",
+                -- "neogit",
+                -- "neotest",
+                -- "neo-tree",
+                -- "neorg",
+                -- "noice",
+                "nvim-cmp",
+                -- "nvim-navic",
+                "nvim-tree",
+                "nvim-web-devicons",
+                -- "rainbow-delimiters",
+                -- "sneak",
+                "telescope",
+                -- "trouble",
+                "which-key",
+                -- "nvim-notify",
+            },
         })
 
         vim.cmd("colorscheme material")
     end
 }
-
