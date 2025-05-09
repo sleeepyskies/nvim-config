@@ -4,7 +4,7 @@ return {
     dependencies = {
         'hrsh7th/cmp-nvim-lsp',
         { 'antosha417/nvim-lsp-file-operations', config = true },
-        { 'folke/neodev.nvim', opts = {} },
+        { 'folke/lazydev.nvim',                  opts = {} },
     },
     config = function()
         local lspconfig = require('lspconfig')
@@ -48,7 +48,7 @@ return {
                 keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
 
                 opts.desc = 'Go to next diagnostic'
-                keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true}) end, opts)
+                keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
 
                 opts.desc = 'Show documentation for what is under cursor'
                 keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -79,18 +79,41 @@ return {
                 -- Configure lua server (with special settings)
                 lspconfig["lua_ls"].setup({
                     capabilities = capabilities,
-                        settings = {
-                            Lua = {
+                    settings = {
+                        Lua = {
                             -- make the language server recognize "vim" global
-                                diagnostics = {
-                                    globals = { "vim" },
-                                },
-                                completion = {
-                                    callSnippet = "Replace",
-                                },
+                            diagnostics = {
+                                globals = { "vim" },
+                            },
+                            completion = {
+                                callSnippet = "Replace",
                             },
                         },
-                    })
+                    },
+                    on_init = function(client)
+                        if client.workspace_folders then
+                            local path = client.workspace_folders[1].name
+                            if path ~= vim.fn.stdpath('config') and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then
+                                return
+                            end
+                        end
+
+                        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+                            runtime = {
+                                -- Tell the language server which version of Lua you're using
+                                -- (most likely LuaJIT in the case of Neovim)
+                                version = 'LuaJIT'
+                            },
+                            -- Make the server aware of Neovim runtime files
+                            workspace = {
+                                checkThirdParty = false,
+                                library = {
+                                    vim.env.VIMRUNTIME
+                                }
+                            }
+                        })
+                    end,
+                })
             end,
         })
     end,

@@ -1,6 +1,6 @@
 -- This file is used for setting up lazy plugin manager
 
--- install lazy plugin manager if not already installed
+-- Install lazy plugin manager if not already installed
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({

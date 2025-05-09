@@ -2,7 +2,7 @@
 -- This file is used to customise and set options in vim (done using vim.opt.xxx)
 
 -- newtr: use tree style directory listings.
-vim.cmd("let g:netrw_liststyle = 3")
+vim.cmd('let g:netrw_liststyle = 3')
 
 local opt = vim.opt -- for simplicity
 
@@ -31,15 +31,15 @@ opt.colorcolumn = '80,100,120' -- provide line guards
 
 -- appearance
 opt.termguicolors = true -- enable true color in terminal
-opt.background = "dark"  -- prefer dark themes
-opt.signcolumn = "yes"   -- enable a column that can be used for icons
+opt.background = 'dark'  -- prefer dark themes
+opt.signcolumn = 'yes'   -- enable a column that can be used for icons
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard for yanking!
+opt.clipboard:append('unnamedplus') -- use system clipboard for yanking!
 
 -- splits
 opt.splitright = true -- default to vert split to the right
-opt.splitbelow = true -- default to horizont split downwards
+opt.splitbelow = true -- default to horizontally split downwards
 
 -- swapfiles
 opt.swapfile = false -- disable swapfiles, which are used for crash recovery but can clutter filesystem

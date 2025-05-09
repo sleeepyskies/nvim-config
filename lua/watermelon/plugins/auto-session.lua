@@ -1,5 +1,5 @@
--- auto-seesion allows saving of nvim sessions between terminal lifetimes.
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+-- Auto-session allows saving of nvim sessions between terminal lifetimes.
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
 return {
     'rmagatti/auto-session',
@@ -8,7 +8,7 @@ return {
 
         autoSession.setup({
             auto_restore = false,
-            suppressed_dirs = { "~/", "~/dev/", "~/Downloads", "~/Documents", "~/Desktop/" }
+            suppressed_dirs = { '~/', '~/dev/', '~/Downloads', '~/Documents', '~/Desktop/' }
         })
 
         local keymap = vim.keymap
