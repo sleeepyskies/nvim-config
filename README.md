@@ -94,6 +94,34 @@ Formatters must be also installed at `plugins/lsp/mason.lua` and configured at
     - Formats the current file/selection.
 
 ### [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+This plugin is used to add git integration to nvim. It provides colored highlights
+at the side of a file to indicate the hunks git status, as well as some nice 
+keymaps.
+
+### Keymaps
+1. `]h`
+    - Move to the next hunk
+2. `[h`
+    - Move to the previous hunk
+
+All following keymaps have the `<leader>` prefix.
+
+3. `gs`
+    - Stage hunk
+4. `gr`
+    - Rollback hunk
+5. `gS`
+    - Stage buffer
+6. `gR`
+    - Rollback buffer
+7. `gu`
+    - Undo stage hunk
+8. `gb`
+    - Blame this line
+9. `gB`
+    - Toggle line blame
+10. `gd`
+    - Diff this buffer
 
 ### [snacks.nvim](https://github.com/folke/snacks.nvim?tab=readme-ov-file#-usage)
 This plugin provides some QOL features. Currently, I am only using it as a
