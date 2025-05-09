@@ -1,3 +1,4 @@
+-- Creates closing character for any paired characters.
 return {
     'windwp/nvim-autopairs',
     event = { 'InsertEnter' },
@@ -6,6 +7,7 @@ return {
     },
     config = function()
         local autopairs = require('nvim-autopairs')
+        local Rule = require('nvim-autopairs.rule')
 
         autopairs.setup({
             check_ts = true,
@@ -15,10 +17,9 @@ return {
                 c = { 'string', 'comment' },
                 cpp = { 'string', 'comment' },
             },
-            pairs = {
-                ['<'] = { '>', '>', '>' },
-            },
         })
+
+        autopairs.add_rule(Rule('<', '>'))
 
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp = require('cmp')
@@ -26,4 +27,3 @@ return {
         cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
     end,
 }
-

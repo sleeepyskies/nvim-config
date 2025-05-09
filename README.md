@@ -1,4 +1,4 @@
-## Overview
+# Overview
 This repo holds my nvim config. I will list each plugin (soon), as well as what
 purpose they serve and how I have configure them. This is mainly for my own 
 help. Furthermore, any things I want to change about my config but am too lazy 
@@ -12,6 +12,8 @@ My config is based on [this blog](https://www.josean.com/posts/how-to-setup-neov
 - Set up formatting
 - Go through all plugins and configure how I need them. Remove/add any stuff I
 want/don't need anymore
+- get italics/cursive to work within tmux/iterm2. Or just use another terminal idk.
+
 
 ## Config Structure
 ```
@@ -55,11 +57,48 @@ This plugin creates a greeting start screen when opening nvim up. It can be
 customized both visually and functionally, allowing me to add custom commands to
 run with shortcuts.
 
+It is loaded on `VimEnter`.
+
 ### [ascii.nvim](https://github.com/MaximilianLloyd/ascii.nvim)
 I use this plugin with `alpha.nvim`. It simply provides some ascii-art to use
 for the start screen provided by alpha.
 
-## [auto-session.nvim](https://github.com/rmagatti/auto-session)
+### [auto-session.nvim](https://github.com/rmagatti/auto-session)
+This plugin makes it possible to save and load nvim sessions. 
+
+#### Keymaps
+- `<leader>ws`
+    - saves the current workspace
+- `<leader>ws`
+    - loads the saved workspace
+
+### [nvim-autopairs.nvim](https://github.com/windwp/nvim-autopairs?tab=readme-ov-file)
+This plugin handles inserting closing pair characters for any opening pair
+characters. A custom rule has been added to also close `<>` pairs.
+
+### [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+This plugin creates traversable tabs for each buffer open. It has been configured
+to allow multiple tabs in one buffer.
+
+### colorscheme.lua
+This file holds my current theme. ATM, I am using my go-to theme [material.nvim](https://github.com/marko-cerovac/material.nvim).
+It has fields for adding any supported plugins to the theme.
+
+### formatting.lua
+For formatting, I am using [conform.nvim](https://github.com/stevearc/conform.nvim).
+Formatters must be also installed at `plugins/lsp/mason.lua` and configured at
+`plugins/lsp/lspconfig.lua`.
+
+#### Keymaps
+1. `<leader>mp`
+    - Formats the current file/selection.
+
+### [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+
+### [snacks.nvim](https://github.com/folke/snacks.nvim?tab=readme-ov-file#-usage)
+This plugin provides some QOL features. Currently, I am only using it as a
+replacement for [dressing.nvim](https://github.com/stevearc/dressing.nvim), for
+it's `vim.ui.select` and `vim.ui.input` improvements.
 
 ## Configured LSPs, Formatters, and Linters
 ### LSPs

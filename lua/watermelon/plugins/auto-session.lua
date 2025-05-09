@@ -7,7 +7,6 @@ return {
         local autoSession = require('auto-session')
 
         autoSession.setup({
-            auto_restore = false,
             suppressed_dirs = { '~/', '~/dev/', '~/Downloads', '~/Documents', '~/Desktop/' }
         })
 
