@@ -52,6 +52,18 @@ This is the plugin manager I use. It maintains `lazy-lock.json` at the root for
 keeping track of any plugins and their dependencies. `lazy.lua` will then load
 any plugins found under `/plugins` and `/plugins/lsp`.
 
+### init.lua
+
+This file found under `/plugins` sets up two plugins:
+#### [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+This plugin is used by many other plugins as a utility plugin, with useful methods.
+
+#### [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+This plugin works in combination with tmux to allow transitioning between nvim
+tmux splits. The following keymaps are setup:
+1. `<CTRL>vim-movement-keys`
+    - This enables navigation between nvim and tmux panes.
+
 ### [alpha.nvim](https://github.com/goolord/alpha-nvim)
 This plugin creates a greeting start screen when opening nvim up. It can be 
 customized both visually and functionally, allowing me to add custom commands to
@@ -123,10 +135,52 @@ All following keymaps have the `<leader>` prefix.
 10. `gd`
     - Diff this buffer
 
+### [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+This plugin adds indent guides to nvim.
+
+### [nvim-lint](https://github.com/mfussenegger/nvim-lint)
+This plugin is used to get and configure linters. I have setup following keybinds:
+1. `<leader>l`
+    - Lints the current buffer.
+
+### [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+This plugin provides a statusline bar for nvim. It provides information on:
+- The current git repo status
+- The current vim mode
+- Any code issues
+- Filetype/encoding
+- Any outdated plugins
+
+### [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+This plugin provides auto complete suggestions for nvim. It provides following
+keymaps for navigating suggestions:
+
+All keybindings are prefixed with the `<C>` button.
+
+1. `k` / `j`
+    - Navigate suggestions
+2. `b` / `f`
+    - Scroll through the shown documentation
+3. `Space`
+    - Opens the autocomplete menu
+4. `e`
+    - Aborts the menu
+
+### [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+Provides a better file explorer for nvim. It provides following keybindings, all
+prefixed with `<leader>e`
+1. `e`
+    - Opens the file tree
+2. `f`
+    - Opens the file tree at the current file
+3. `c`
+    - Collapses the file tree
+
 ### [snacks.nvim](https://github.com/folke/snacks.nvim?tab=readme-ov-file#-usage)
 This plugin provides some QOL features. Currently, I am only using it as a
 replacement for [dressing.nvim](https://github.com/stevearc/dressing.nvim), for
 it's `vim.ui.select` and `vim.ui.input` improvements.
+
 
 ## Configured LSPs, Formatters, and Linters
 ### LSPs

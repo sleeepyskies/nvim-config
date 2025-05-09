@@ -1,3 +1,4 @@
+-- sets up linting files in nvim
 return {
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },

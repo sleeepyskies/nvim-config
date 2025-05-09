@@ -75,18 +75,18 @@ return {
 
             -- Any any special lsp configs here, only if the default is not enough
 
-            ["lua_ls"] = function()
+            ['lua_ls'] = function()
                 -- Configure lua server (with special settings)
-                lspconfig["lua_ls"].setup({
+                lspconfig['lua_ls'].setup({
                     capabilities = capabilities,
                     settings = {
                         Lua = {
-                            -- make the language server recognize "vim" global
+                            -- make the language server recognize 'vim' global
                             diagnostics = {
-                                globals = { "vim" },
+                                globals = { 'vim' },
                             },
                             completion = {
-                                callSnippet = "Replace",
+                                callSnippet = 'Replace',
                             },
                         },
                     },

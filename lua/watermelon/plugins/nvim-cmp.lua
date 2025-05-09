@@ -1,3 +1,4 @@
+-- Provides an autocomplete menu
 return {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
