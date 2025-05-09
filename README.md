@@ -248,6 +248,13 @@ setup, all prefixed with `<leader>x`:
 5. `t`
     - Opens all TODOs in trouble
 
+### [virt-column](https://github.com/lukas-reineke/virt-column.nvim)
+This plugin replaces the default nvim line guards that are a whole character
+wide with a thinner one.
+
+### [which-key](https://github.com/folke/which-key.nvim)
+This plugin displays all available keybindings.
+
 ## Configured LSPs, Formatters, and Linters
 ### LSPs
 
