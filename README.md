@@ -181,6 +181,72 @@ This plugin provides some QOL features. Currently, I am only using it as a
 replacement for [dressing.nvim](https://github.com/stevearc/dressing.nvim), for
 it's `vim.ui.select` and `vim.ui.input` improvements.
 
+### [nvim-surround](https://github.com/kylechui/nvim-surround)
+This plugin provides some helpful keybindings/shortcuts for dealing with paired
+character. This includes changing these pairs, adding them, deleting them and more.
+
+Taken from the `nvim-surround` git repo:
+
+    Old text                    Command         New text
+--------------------------------------------------------------------------------
+    surr*ound_words             ysiw)           (surround_words)
+    *make strings               ys$"            "make strings"
+    [delete ar*ound me!]        ds]             delete around me!
+    remove <b>HTML t*ags</b>    dst             remove HTML tags
+    'change quot*es'            cs'"            "change quotes"
+    <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
+    delete(functi*on calls)     dsf             function calls
+
+### [nvim-telescope](https://github.com/nvim-telescope/telescope.nvim)
+This plugin is a fuzzy finder for nvim. It essentially allows the user to search
+through both file names and file content with the help of grep. I have setup the
+follwing keybinds:
+
+All keybindigs are prefixed with `<leader>f`
+
+1. `f`
+    - Search filenames
+2. `s`
+    - Search for strings in the cwd
+3. `c`
+    - Search for the string under the cursor in the cwd
+4. `t`
+    - Search for TODO likes
+
+### [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+This plugin provides nice TODO comments with highlighting. Furthermore, these
+comments can be searched for using plugins like Telescope. The plugin provides
+the following comments:
+
+- TODO:
+- HACK:
+- WARN:
+- PERF:
+- NOTE:
+- TEST:
+
+### [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+Treesitter is used to parse code and create a syntax tree. It also provides some
+sytax highlighting (so language keywords, strings etc..). Sematinc highlighting
+(should I think) be covered by LSPs. Furthermore, it has some use keybindings:
+1. `<C-space>`
+    - Highlights the current scope, as well as increases its range by one.
+2. `<bs>`
+    - Decrease the selection range.
+
+### [trouble.nvim](https://github.com/folke/trouble.nvim)
+This plugin provides a way to check project diagnostics. It has following keybinds
+setup, all prefixed with `<leader>x`:
+1. `w`
+    - Opens workspace diagnostics
+2. `d`
+    - Opens buffer diagnostics
+3. `q`
+    - Opens troubles quickfix list
+4. `l`
+    - Opens troubles location list
+5. `t`
+    - Opens all TODOs in trouble
 
 ## Configured LSPs, Formatters, and Linters
 ### LSPs

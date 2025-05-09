@@ -1,3 +1,4 @@
+-- Creates a syntax tree anf provies syntax highlighting.
 return {
     'nvim-treesitter/nvim-treesitter',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -42,7 +43,7 @@ return {
                 enable = true,
                 keymaps = {
                     init_selection = '<C-space>',
-                    node_incremental = '<C-space>', 
+                    node_incremental = '<C-space>',
                     scope_incremental = false,
                     node_decremental = '<bs>',
                 },
@@ -50,4 +51,3 @@ return {
         })
     end,
 }
-

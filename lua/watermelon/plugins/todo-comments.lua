@@ -1,3 +1,4 @@
+-- Provides todo comments with nice highlighting
 return {
     'folke/todo-comments.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
