@@ -4,7 +4,7 @@ purpose they serve and how I have configure them. This is mainly for my own
 help. Furthermore, any things I want to change about my config but am too lazy 
 to do will be added here.
 
-My config is based on (this blog)[https://www.josean.com/posts/how-to-setup-neovim-2024].
+My config is based on [this blog](https://www.josean.com/posts/how-to-setup-neovim-2024).
 
 ## TODO
 - Fix all the errors
@@ -45,21 +45,21 @@ keybindings can be found in their respective `.lua` file.
 
 ## Plugins
 `lazy.lua` is the entry point for loading plugins. This file will install 
-(lazy.nvim)[https://github.com/folke/lazy.nvim] if it is not already installed. 
+[lazy.nvim](https://github.com/folke/lazy.nvim) if it is not already installed. 
 This is the plugin manager I use. It maintains `lazy-lock.json` at the root for
 keeping track of any plugins and their dependencies. `lazy.lua` will then load
 any plugins found under `/plugins` and `/plugins/lsp`.
 
-### (alpha.nvim)[https://github.com/goolord/alpha-nvim]
+### [alpha.nvim](https://github.com/goolord/alpha-nvim)
 This plugin creates a greeting start screen when opening nvim up. It can be 
 customized both visually and functionally, allowing me to add custom commands to
 run with shortcuts.
 
-### (ascii.nvim)[https://github.com/MaximilianLloyd/ascii.nvim]
+### [ascii.nvim](https://github.com/MaximilianLloyd/ascii.nvim)
 I use this plugin with `alpha.nvim`. It simply provides some ascii-art to use
 for the start screen provided by alpha.
 
-## (auto-session.nvim)[https://github.com/rmagatti/auto-session]
+## [auto-session.nvim](https://github.com/rmagatti/auto-session)
 
 ## Configured LSPs, Formatters, and Linters
 ### LSPs
