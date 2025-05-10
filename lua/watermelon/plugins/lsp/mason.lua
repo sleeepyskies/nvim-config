@@ -1,3 +1,4 @@
+-- Handles installing LSPs, formatters, and linters.
 return {
     'williamboman/mason.nvim',
     dependencies = {
@@ -21,14 +22,42 @@ return {
 
         mason_lspconfig.setup({
             ensure_installed = {
-                'clangd',
-                'harper_ls',
-                'cmake',
-                'glslls',
-                'hls',
-                'jsonls',
-                'lua_ls',
-                'pylsp',
+                -- general LSPs
+                'pyright',       -- python
+                'lua_ls',        -- lua
+                'rust_analyzer', -- rust
+                'harper_ls',     -- harper, a grammar lsp
+                'bashls',        -- bash
+                'sqls'           -- sql
+
+                -- various filetypes
+                'jsonls',   --json
+                'yamlls',   -- yaml
+                'taplo',    -- toml
+                'lemminx',  -- xml
+                'dockerls', -- docker
+                'marksman', -- markdown
+
+                -- c world LSPs
+                'clangd',    -- c/c++
+                'omnisharp', -- c#
+                'cmake',     -- cmake
+                'glslls',    -- glsl/hsl
+
+                -- webdev LSPs
+                'html',        -- html
+                'cssls',       -- css
+                'tailwindcss', -- tailwind
+                'ts_ls',       -- typescript
+                'volar',       -- vue
+
+                -- java world LSPs
+                'kotlin_language_server', -- kotlin
+                'jdtls',                  -- java
+
+                -- functional language LSPs
+                'hls',     -- haskell
+                'ocamlls', -- ocaml
             },
         })
 
