@@ -1,0 +1,2 @@
+# ignore linting here please
+exclude = ['*']
