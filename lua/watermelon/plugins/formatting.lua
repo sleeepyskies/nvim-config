@@ -1,3 +1,4 @@
+-- Allows linting of files
 return {
     'stevearc/conform.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -6,12 +7,40 @@ return {
 
         conform.setup({
             formatters_by_ft = {
-                javascript = { 'prettier' },
+                -- general formatters
+                lua = { 'stylua' },
+                python = { 'black' },
+                rust = { 'rustfmt ' },
+                bash = { 'shfmt' },
+                sql = { 'sqlfmt' },
+
+                -- various filetypes
+                json = { 'prettier' },
+                yaml = { 'prettier' },
+                markdown = { 'prettier' },
+
+                -- c world formatters
                 cpp = { 'clang-format' },
                 c = { 'clang-format' },
-                cmake = { 'cmake_format' },
-                lua = { 'lua-format' }
+                c_sharp = { 'csharpier' },
+                cmake = { 'cmakelang' },
+
+                -- webdev formatters
+                html = { 'prettier' },
+                css = { 'prettier' },
+                javascript = { 'prettier' },
+                typescript = { 'prettier' },
+                vue = { 'prettier' },
+
+                -- java world formatters
+                java = { 'google-java-format' },
+                kotlin = { 'ktlint' },
+
+                -- functional language formatters
+                haskell = { 'ormolu' },
+                ocaml = { 'ocamlformat' },
             },
+
             format_on_save = {
                 lsp_fallback = true,
                 async = false,

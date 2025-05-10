@@ -1,4 +1,4 @@
--- sets up linting files in nvim
+-- Sets up linting files in nvim
 return {
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -6,10 +6,36 @@ return {
         local lint = require('lint')
 
         lint.linters_by_ft = {
-            javascript = { 'eslint_d' },
-            c = { 'clangtidy' },
-            cpp = { 'clangtidy' },
+            -- general linters
+            lua = { 'selene' },
             python = { 'pylint' },
+            rust = { 'snyk' },
+            bash = { 'shellcheck' },
+            sql = { 'sqlfluff' },
+
+            -- various filetypes
+            json = { 'semgrep' },
+            yaml = { 'yamllint' },
+            markdown = { 'markdownlint' },
+
+            -- c world formatters
+            cpp = { 'cpplint' },
+            c = { 'cpplint' },
+            c_sharp = { 'semgrep' },
+            cmake = { 'cmakelang' },
+
+            -- webdev formatters
+            html = { 'htmlhint' },
+            css = { 'stylelint' },
+            javascript = { 'eslint_d' },
+            typescript = { 'eslint_d' },
+
+            -- java world formatters
+            java = { 'checkstyle' },
+            kotlin = { 'ktlint' },
+
+            -- functional language formatters
+            haskell = { 'hlint' },
         }
 
         local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })

@@ -1,10 +1,11 @@
+-- Configures any LSPs
 return {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         'hrsh7th/cmp-nvim-lsp',
         { 'antosha417/nvim-lsp-file-operations', config = true },
-        { 'folke/lazydev.nvim',                  opts = {} },
+        { 'folke/lazydev.nvim', opts = {} },
     },
     config = function()
         local lspconfig = require('lspconfig')
@@ -45,10 +46,14 @@ return {
                 keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
 
                 opts.desc = 'Go to previous diagnostic'
-                keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+                keymap.set('n', '[d', function()
+                    vim.diagnostic.jump({ count = -1, float = true })
+                end, opts)
 
                 opts.desc = 'Go to next diagnostic'
-                keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+                keymap.set('n', ']d', function()
+                    vim.diagnostic.jump({ count = 1, float = true })
+                end, opts)
 
                 opts.desc = 'Show documentation for what is under cursor'
                 keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -60,23 +65,42 @@ return {
 
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
-        local signs = { Error = ' ', Warn = ' ', Hint = '󰠠 ', Info = ' ' }
-        for type, icon in pairs(signs) do
-            local hl = 'DiagnosticSign' .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-        end
+        vim.diagnostic.config({
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = '',
+                    [vim.diagnostic.severity.WARN] = '',
+                    [vim.diagnostic.severity.HINT] = '',
+                    [vim.diagnostic.severity.INFO] = '',
+                },
+                linehl = {
+                    [vim.diagnostic.severity.ERROR] = '',
+                    [vim.diagnostic.severity.WARN] = '',
+                    [vim.diagnostic.severity.HINT] = '',
+                    [vim.diagnostic.severity.INFO] = '',
+                },
+                numhl = {
+                    [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+                    [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+                    [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+                    [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+                },
+            },
+        })
 
         mason_lspconfig.setup_handlers({
+            -- default handler
             function(server_name)
                 lspconfig[server_name].setup({
                     capabilities = capabilities,
                 })
             end,
 
-            -- Any any special lsp configs here, only if the default is not enough
+            -- Any any special LSP configs here, only if the default is not enough
 
+            -- lua custom config
             ['lua_ls'] = function()
-                -- Configure lua server (with special settings)
+                -- custom lua config
                 lspconfig['lua_ls'].setup({
                     capabilities = capabilities,
                     settings = {
@@ -93,7 +117,10 @@ return {
                     on_init = function(client)
                         if client.workspace_folders then
                             local path = client.workspace_folders[1].name
-                            if path ~= vim.fn.stdpath('config') and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then
+                            if
+                                path ~= vim.fn.stdpath('config')
+                                and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+                            then
                                 return
                             end
                         end
@@ -102,17 +129,31 @@ return {
                             runtime = {
                                 -- Tell the language server which version of Lua you're using
                                 -- (most likely LuaJIT in the case of Neovim)
-                                version = 'LuaJIT'
+                                version = 'LuaJIT',
                             },
                             -- Make the server aware of Neovim runtime files
                             workspace = {
                                 checkThirdParty = false,
                                 library = {
-                                    vim.env.VIMRUNTIME
-                                }
-                            }
+                                    vim.env.VIMRUNTIME,
+                                },
+                            },
                         })
                     end,
+                })
+            end,
+
+            -- custom harper config
+            ['harper_ls'] = function()
+                lspconfig['harper_ls'].setup({
+                    capabilities = capabilities,
+                    settings = {
+                        ['harper-ls'] = {
+                            linters = {
+                                SentenceCapitalization = false,
+                            },
+                        },
+                    },
                 })
             end,
         })
