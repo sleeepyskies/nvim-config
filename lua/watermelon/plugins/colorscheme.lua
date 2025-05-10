@@ -9,7 +9,7 @@ return {
             styles = {
                 comments = { italic = true },
                 strings = { bold = true },
-                -- keywords = { underline = true },
+                keywords = { italic = true },
                 functions = { bold = true },
                 variables = {},
                 operators = {},
