@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 -- Handles installing LSPs, formatters, and linters.
 return {
     'williamboman/mason.nvim',
@@ -41,7 +42,7 @@ return {
 
                 -- c world LSPs
                 'clangd', -- c/c++
-                'omnisharp', -- c#
+                -- 'omnisharp_mono',
                 'cmake', -- cmake
 
                 -- webdev LSPs
@@ -50,7 +51,7 @@ return {
                 'tailwindcss', -- tailwind
                 'ts_ls', -- typescript
                 'volar', -- vue
-                'emmet', -- emmet
+                'emmet_ls', -- emmet
 
                 -- java world LSPs
                 'kotlin_language_server', -- kotlin
@@ -58,7 +59,7 @@ return {
 
                 -- functional language LSPs
                 'hls', -- haskell
-                'ocamlls', -- ocaml
+                'ocamllsp',
             },
         })
 

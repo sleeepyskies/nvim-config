@@ -1,2 +1,4 @@
-# ignore linting here please
-exclude = ['*']
+std = "vi"
+
+[lints]
+mixed_table = "allow"
