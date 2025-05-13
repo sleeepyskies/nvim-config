@@ -1,4 +1,4 @@
--- Creates a syntax tree anf provies syntax highlighting.
+-- Creates a syntax tree and provides syntax highlighting.
 return {
     'nvim-treesitter/nvim-treesitter',
     event = { 'BufReadPre', 'BufNewFile' },
