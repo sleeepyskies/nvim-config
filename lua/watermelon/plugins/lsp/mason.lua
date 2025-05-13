@@ -77,7 +77,7 @@ return {
                 'prettier',
 
                 -- c world formatters
-                'clang-format',
+                -- 'clang-format',
                 'csharpier',
                 'cmakelang',
 
@@ -86,7 +86,7 @@ return {
                 'ktlint',
 
                 -- functional language formatters
-                'ormolu',
+                -- 'fourmolu',
                 'ocamlformat',
 
                 -- linters
@@ -103,7 +103,7 @@ return {
                 'markdownlint',
 
                 -- c world linters
-                'cpplint',
+                -- 'cpplint',
                 'htmlhint',
                 'stylelint',
                 'eslint_d',
@@ -112,7 +112,7 @@ return {
                 'checkstyle',
 
                 -- functional language linters
-                'hlint',
+                -- 'hlint',
             },
         })
     end,

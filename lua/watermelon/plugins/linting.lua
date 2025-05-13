@@ -19,10 +19,7 @@ return {
             markdown = { 'markdownlint' },
 
             -- c world formatters
-            cpp = { 'cpplint' },
-            c = { 'cpplint' },
             c_sharp = { 'semgrep' },
-            cmake = { 'cmakelang' },
 
             -- webdev formatters
             html = { 'htmlhint' },
@@ -35,7 +32,6 @@ return {
             kotlin = { 'ktlint' },
 
             -- functional language formatters
-            haskell = { 'hlint' },
         }
 
         local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })

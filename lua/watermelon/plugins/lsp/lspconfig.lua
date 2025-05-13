@@ -86,6 +86,7 @@ return {
                     [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
                 },
             },
+            virtual_text = true,
         })
 
         mason_lspconfig.setup_handlers({
@@ -96,9 +97,9 @@ return {
                 })
             end,
 
-            -- Any any special LSP configs here, only if the default is not enough
+            -- any any special lsp configs here, only if the default is not enough
 
-            -- lua custom config
+            -- lua
             ['lua_ls'] = function()
                 -- custom lua config
                 lspconfig['lua_ls'].setup({
@@ -131,11 +132,12 @@ return {
                                 -- (most likely LuaJIT in the case of Neovim)
                                 version = 'LuaJIT',
                             },
-                            -- Make the server aware of Neovim runtime files
+                            -- make the server aware of neovim runtime files
                             workspace = {
                                 checkThirdParty = false,
                                 library = {
                                     vim.env.VIMRUNTIME,
+                                    '${3rd}/luv/library',
                                 },
                             },
                         })
@@ -143,7 +145,7 @@ return {
                 })
             end,
 
-            -- custom harper config
+            -- harper, English language
             ['harper_ls'] = function()
                 lspconfig['harper_ls'].setup({
                     capabilities = capabilities,
@@ -152,6 +154,46 @@ return {
                             linters = {
                                 SentenceCapitalization = false,
                             },
+                        },
+                    },
+                })
+            end,
+
+            -- NOTE: This doesn't work properly!
+            -- vue
+            ['volar'] = function()
+                lspconfig['volar'].setup({
+                    capabilities = capabilities,
+                    cmd = { 'vue-language-server', '--stdio' },
+                    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+                    init_options = {
+                        typescript = {
+                            tsdk = vim.fn.stdpath('data')
+                                .. '/mason/packages/typescript-language-server/node_modules/typescript/lib',
+                        },
+                    },
+                })
+            end,
+
+            -- c/cpp
+            ['clangd'] = function()
+                lspconfig['clangd'].setup({
+                    capabilities = capabilities,
+                    cmd = {
+                        'clangd',
+                        '--offset-encoding=utf-16',
+                        '--fallback-style=webkit',
+                    },
+                })
+            end,
+
+            -- haskell
+            ['hls'] = function()
+                lspconfig['hls'].setup({
+                    capabilities = capabilities,
+                    settings = {
+                        haskell = {
+                            formattingProvider = 'fourmolu',
                         },
                     },
                 })

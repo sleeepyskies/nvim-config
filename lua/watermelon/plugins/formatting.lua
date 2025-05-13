@@ -20,8 +20,6 @@ return {
                 markdown = { 'prettier' },
 
                 -- c world formatters
-                cpp = { 'clang-format' },
-                c = { 'clang-format' },
                 c_sharp = { 'csharpier' },
                 cmake = { 'cmakelang' },
 
@@ -37,7 +35,6 @@ return {
                 kotlin = { 'ktlint' },
 
                 -- functional language formatters
-                haskell = { 'ormolu' },
                 ocaml = { 'ocamlformat' },
             },
 
