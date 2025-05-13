@@ -15,7 +15,10 @@ return {
                 operators = {},
                 types = {},
             },
-
+            -- enable transparent background
+            disable = {
+                background = true,
+            },
             plugins = { -- Uncomment the plugins that you use to highlight them
                 -- Available plugins:
                 -- 'coc',
@@ -51,5 +54,5 @@ return {
         })
 
         vim.cmd('colorscheme material')
-    end
+    end,
 }
