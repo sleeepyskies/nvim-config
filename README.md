@@ -149,6 +149,19 @@ to allow multiple tabs in one buffer.
 This file holds my current theme. ATM, I am using my go-to theme [material.nvim](https://github.com/marko-cerovac/material.nvim).
 It has fields for adding any supported plugins to the theme.
 
+### [cmake-tools.nvim](https://github.com/Civitasv/cmake-tools.nvim)
+
+This plugin integrates CMake into nvim. I have setup some keybinds to use useful
+provided commands. To see the full list of available commands, go [here](https://github.com/Civitasv/cmake-tools.nvim/blob/master/docs/all_commands.md).
+Keybinds:
+
+- `<leader>cg`:
+  - Generate CMake configuration.
+- `<leader>cb`
+  - Build CMake project.
+- `<leader>cr`
+  - Runs the executable
+
 ### formatting.lua
 
 For formatting, I am using [conform.nvim](https://github.com/stevearc/conform.nvim).
