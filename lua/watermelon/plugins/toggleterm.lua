@@ -33,5 +33,16 @@ return {
         vim.keymap.set({ 'n', 't' }, '<leader>tt', function()
             float_term:toggle()
         end, { noremap = true, silent = true })
+
+        -- unique terminal for using lazygit
+        local lazygit = Terminal:new({
+            cmd = 'lazygit',
+            direction = 'float',
+            hidden = true,
+            count = 99, -- ensure it's unique
+        })
+        vim.keymap.set('n', '<leader>hh', function()
+            lazygit:toggle()
+        end, { noremap = true, silent = true, desc = 'Open LazyGit' })
     end,
 }
