@@ -40,6 +40,7 @@ return {
                 ['<CR>'] = cmp.mapping.confirm({ select = false }),
             }),
             sources = cmp.config.sources({
+                { name = 'render-markdown' },
                 { name = 'nvim_cmp' },
                 { name = 'luasnip' },
                 { name = 'buffer' },
