@@ -1,8 +1,16 @@
+local function output_log()
+    return {
+        direction = 'tab',
+        close_on_exit = false,
+    }
+end
+
 return {
     'Civitasv/cmake-tools.nvim',
     ft = { 'c', 'cpp', 'cmake' },
     dependencies = {
         'nvim-lua/plenary.nvim',
+        'akinsho/toggleterm.nvim',
     },
     opts = {},
     config = function()
@@ -16,15 +24,24 @@ return {
             cmake_build_options = {},
             cmake_console_size = 10,
             cmake_show_console = 'always',
+            cmake_executor = {
+                name = 'toggleterm',
+                opts = output_log(),
+            },
+            cmake_runner = {
+                name = 'toggleterm',
+                opts = output_log(),
+            },
         })
 
         vim.keymap.set('n', '<leader>cg', ':CMakeGenerate<CR>', { desc = 'CMake Generate' })
         vim.keymap.set('n', '<leader>cb', ':CMakeBuild<CR>', { desc = 'CMake Build' })
         vim.keymap.set('n', '<leader>cr', ':CMakeRun<CR>', { desc = 'CMake Run' })
+        vim.keymap.set('n', '<leader>ct', ':CMakeSelectBuildTarget<CR>', { desc = 'CMake Select Build Target' })
+        vim.keymap.set('n', '<leader>cl', ':CMakeSelectLaunchTarget<CR>', { desc = 'CMake Select Launch Target' })
 
         -- apply patch for broken thang
         local scratch = require('cmake-tools.scratch')
-        local orig_create = scratch.create
         scratch.create = function(executor, runner)
             if scratch.buffer ~= nil then
                 return
