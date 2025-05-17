@@ -19,8 +19,6 @@ return {
             },
         })
 
-        autopairs.add_rule(Rule('<', '>'))
-
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp = require('cmp')
 
