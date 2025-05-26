@@ -44,6 +44,7 @@ return {
                 'clangd', -- c/c++
                 -- 'omnisharp_mono',
                 'cmake', -- cmake
+                'glslls',
 
                 -- webdev LSPs
                 'html', -- html
@@ -92,13 +93,13 @@ return {
                 -- linters
                 -- general linters
                 'luacheck',
-                'pylint',
+                -- 'pylint',
                 'snyk',
                 'shellcheck',
                 'sqlfluff',
 
                 -- various filetypes
-                'semgrep',
+                -- 'semgrep',
                 'yamllint',
                 'markdownlint',
 

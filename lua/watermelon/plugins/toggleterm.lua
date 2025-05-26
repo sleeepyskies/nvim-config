@@ -5,7 +5,7 @@ return {
     config = function()
         local toggleterm = require('toggleterm')
         toggleterm.setup({
-            size = function(term)
+            size = function()
                 return vim.o.columns * 0.8
             end,
             open_mapping = [[<c-\>]],
@@ -32,7 +32,7 @@ return {
         local float_term = Terminal:new({ direction = 'float', hidden = true })
         vim.keymap.set({ 'n', 't' }, '<leader>tt', function()
             float_term:toggle()
-        end, { noremap = true, silent = true })
+        end, { noremap = true, silent = true, desc = 'Open a terminal' })
 
         -- unique terminal for using lazygit
         local lazygit = Terminal:new({

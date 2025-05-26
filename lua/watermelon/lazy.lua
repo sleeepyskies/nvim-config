@@ -15,7 +15,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- include path to plugins
-require('lazy').setup({ { import = 'watermelon.plugins' }, { import = 'watermelon.plugins.lsp' } }, {
+require('lazy').setup({
+    { import = 'watermelon.plugins' },
+    { import = 'watermelon.plugins.lsp' },
+}, {
     change_detection = {
         notify = false,
     },

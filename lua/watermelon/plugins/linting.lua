@@ -8,18 +8,18 @@ return {
         lint.linters_by_ft = {
             -- general linters
             lua = { 'selene' },
-            python = { 'pylint' },
+            -- python = { 'pylint' },
             rust = { 'snyk' },
             bash = { 'shellcheck' },
             sql = { 'sqlfluff' },
 
             -- various filetypes
-            json = { 'semgrep' },
+            -- json = { 'semgrep' },
             yaml = { 'yamllint' },
             markdown = { 'markdownlint' },
 
             -- c world formatters
-            c_sharp = { 'semgrep' },
+            -- c_sharp = { 'semgrep' },
 
             -- webdev formatters
             html = { 'htmlhint' },

@@ -49,8 +49,8 @@ My config is based on [this blog](https://www.josean.com/posts/how-to-setup-neov
 ## TODO
 
 - Fix all the errors
-- Go through all plugins and configure how I need them. Remove/add any stuff I
-  want/don't need anymore
+- Fix pylint, has been just disabled for now.
+- add missing docs here for newly added plugins.
 
 ## Config Structure
 
