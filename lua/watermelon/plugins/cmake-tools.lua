@@ -39,6 +39,7 @@ return {
         vim.keymap.set('n', '<leader>cr', ':CMakeRun<CR>', { desc = 'CMake Run' })
         vim.keymap.set('n', '<leader>ct', ':CMakeSelectBuildTarget<CR>', { desc = 'CMake Select Build Target' })
         vim.keymap.set('n', '<leader>cl', ':CMakeSelectLaunchTarget<CR>', { desc = 'CMake Select Launch Target' })
+        vim.keymap.set('n', '<leader>cc', ':CMakeClean<CR>', { desc = 'CMake Clean' })
 
         -- apply patch for broken thang
         local scratch = require('cmake-tools.scratch')

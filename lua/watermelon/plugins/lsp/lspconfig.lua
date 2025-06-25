@@ -183,6 +183,9 @@ return {
                         'clangd',
                         '--offset-encoding=utf-16',
                         '--fallback-style=webkit',
+                        '--compile-commands-dir=build',
+                        '--header-insertion=never',
+                        '--query-driver=/usr/bin/clang*',
                     },
                 })
             end,
