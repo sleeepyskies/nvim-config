@@ -1,0 +1,4 @@
+std = "vi"
+
+[lints]
+mixed_table = "allow"
