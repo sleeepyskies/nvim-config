@@ -82,7 +82,7 @@ return {
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    local servers = { "lua_ls", "pyright", "clangd", "rust_analyzer" }
+    local servers = { "lua_ls", "pyright", "clangd" }
 
     for _, server in ipairs(servers) do
       if server == "lua_ls" then

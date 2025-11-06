@@ -55,8 +55,11 @@ return {
       -- custom color overrides
       custom_colors = function(colors)
         colors.editor.bg = "#08080E"
+        colors.editor.fg = colors.main.white
         colors.backgrounds.non_current_windows = "#08080E"
         colors.syntax.fn = "#C24A5C"
+        colors.syntax.variable = colors.main.white
+        colors.editor.fg_dark = colors.main.blue
       end,
     })
 
