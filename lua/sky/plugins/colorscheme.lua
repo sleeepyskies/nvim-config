@@ -60,6 +60,7 @@ return {
         colors.syntax.fn = "#C24A5C"
         colors.syntax.variable = colors.main.white
         colors.editor.fg_dark = colors.main.blue
+        colors.syntax.comments = colors.main.gray
       end,
     })
 

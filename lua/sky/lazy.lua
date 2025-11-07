@@ -1,3 +1,14 @@
+local is_mac = vim.fn.has("mac") == 1
+
+local plugins = {
+  { import = "sky.plugins" },
+  { import = "sky.plugins.lsp" },
+}
+
+if is_mac then
+  table.insert(plugins, { import = "sky.plugins.mac" })
+end
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,7 +22,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "sky.plugins" }, { import = "sky.plugins.lsp" } }, {
+require("lazy").setup(plugins, {
   checker = {
     enabled = true,
     notify = false,
