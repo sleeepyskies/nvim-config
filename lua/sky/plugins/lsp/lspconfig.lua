@@ -82,10 +82,23 @@ return {
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    local servers = { "lua_ls", "pyright", "clangd" }
+    local servers = {
+      "html",
+      "cssls",
+      "lua_ls",
+      "pyright",
+      "clangd",
+      "cmake",
+      "bashls",
+      "jsonls",
+      "yamlls",
+      "rust_analyzer",
+      "ts_ls",
+      "emmet_language_server",
+    }
 
-    for _, server in ipairs(servers) do
-      if server == "lua_ls" then
+    local custom_settings = {
+      lua_ls = function()
         lspconfig.lua_ls.setup({
           capabilities = capabilities,
           settings = {
@@ -95,29 +108,58 @@ return {
             },
           },
         })
-      else
-        if server == "clangd" then
-          lspconfig.clangd.setup({
-            capabilities = capabilities,
-            cmd = {
-              "clangd",
-              "--background-index", -- Enables background indexing
-              "--clang-tidy", -- Enables clang-tidy diagnostics
-              "--completion-style=bundled", -- Simpler completions for faster performance
-              "--rename-file-limit=0", -- No limit on renaming files
-              "--header-insertion=iwyu", -- Suggest missing includes based on IWYU
-              "--inlay-hints", -- Enable inlay hints for parameter and type information
-              "--limit-results=70", -- Limit autocompletion and symbol results
-              "--suggest-missing-includes", -- Still show missing includes suggestions
-              "--pch-storage=disk", -- Stores precompiled headers on disk (fixes the issue where system ran out of memory when indexing large projects)
-              "--log=error", -- Log only errors
+      end,
+      clangd = function()
+        lspconfig.clangd.setup({
+          capabilities = capabilities,
+          cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--completion-style=bundled",
+            "--rename-file-limit=0",
+            "--header-insertion=iwyu",
+            "--inlay-hints",
+            "--limit-results=70",
+            "--suggest-missing-includes",
+            "--pch-storage=disk",
+            "--log=error",
+          },
+        })
+      end,
+      ts_ls = function()
+        local vue_language_server = require("mason-registry")
+          .get_package("vue-language-server")
+          :get_install_path() .. "/node_modules/@vue/language-server"
+
+        lspconfig.ts_ls.setup({
+          capabilities = capabilities,
+          offset_encoding = "utf-16",
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = vue_language_server,
+                languages = { "vue" },
+              },
             },
-          })
-        else
-          lspconfig[server].setup({
-            capabilities = capabilities,
-          })
-        end
+          },
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+        })
+      end,
+      emmet_language_server = function()
+        lspconfig.emmet_language_server.setup({
+          capabilities = capabilities,
+          filetypes = { "html", "css", "javascriptreact", "typescriptreact", "vue" },
+        })
+      end,
+    }
+
+    for _, server in ipairs(servers) do
+      if custom_settings[server] then
+        custom_settings[server]()
+      else
+        lspconfig[server].setup({ capabilities = capabilities })
       end
     end
   end,

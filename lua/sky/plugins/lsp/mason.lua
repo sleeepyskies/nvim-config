@@ -30,13 +30,14 @@ return {
         "html",
         "cssls",
         "lua_ls",
-        "pyright",
-        "clangd", -- C/C++
-        "cmake", -- CMake files
-        "bashls", -- build scripts
-        "jsonls", -- JSON configs
+        "clangd",
+        "cmake",
+        "jsonls",
         "yamlls",
         "rust_analyzer",
+        "ts_ls",
+        "volar",
+        "emmet_language_server",
       },
     })
 
@@ -44,12 +45,7 @@ return {
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
         "clang-format", -- C/C++ formatter
-        "shfmt", -- Bash formatter
-        "sql-formatter", -- SQL formatter
-        "pylint", -- python linter
       },
     })
   end,
